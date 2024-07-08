@@ -67,6 +67,7 @@ userRouter.post("/verify-email", async(req,res)=>{
     try {
         const {userEmail, token} = req.body
 
+        console.log(userEmail, token);
         if(userEmail && token){
             const result = await deleteSession({token, userEmail})
 
