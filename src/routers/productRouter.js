@@ -13,7 +13,7 @@ productRouter.get("/", async(req, res)=>{
         
         const products = await getProducts()
       
-        const allProducts = [...products, products]
+        console.log(products);
         
 
        return products?.length 
@@ -33,9 +33,10 @@ productRouter.get("/:_id", async(req,res)=>{
 
     try {
         const {_id} = req.params
-        console.log(_id);
         const product = await getProductByID(_id)
-        console.log(product);
+
+      
+       
        return product?._id 
         ? buildSuccessResponse(res, product, "Product")
         : buildErrorResponse(res, "Something Went Worng, try again later")
